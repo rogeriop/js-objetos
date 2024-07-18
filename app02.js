@@ -193,12 +193,15 @@ console.log("** DIVISÃO **");
 interage();
 console.log(calculadora.divisao(a, b));
 pula();
+
 console.log(" b) Adicione um novo método chamado calcularMedia ao objeto calculadora. Esta função deve aceitar um array de números como parâmetro e retornar a média aritmética dos valores.".cyan);
+
 calculadora.media = function (a) {
   const total = a.reduce((acumulador, nota) => {return acumulador + nota}, 0);
   return total / a.length;
 }
 ok();
+
 console.log(" c) Chame a função calcularMedia passando um array de números e imprima no console o resultado obtido.\n".cyan);
 const lista = [10, 20, 30, 40];
 console.log("** MÉDIA **");
