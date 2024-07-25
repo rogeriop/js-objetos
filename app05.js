@@ -6,23 +6,9 @@ Data      : 23/07/2024
 */
 
 const read = require('readline-sync');
+const { pare, ok, pula } = require('./app00.js');
 const color = require('@colors/colors');
 console.clear();
-function pare(){
-  console.log();
-  const ordem = Number(read.question("Pressione a tecla <enter> para continuar... ou 9 + <enter> para parar: ")).toFixed(0);
-  if(ordem==9){
-    console.log('End-of-Job'.green);
-    process.exit();
-  } 
-  console.clear();
-}
-function ok() {
-  console.log("ok");
-}
-function pula() {
-  console.log("");
-}
 
 //# 1 #######################################################################
 console.log("1 - Crie um array de objetos JavaScript representando informações de livros. Cada objeto deve conter pelo menos as seguintes propriedades:\n".cyan);
@@ -132,7 +118,7 @@ pare();
 console.log("5 - Crie um array de objetos JavaScript representando informações fictícias de departamentos. Cada objeto deve conter pelo menos as seguintes propriedades:\n".cyan);
 console.log("id (number): identificador do departamento.".cyan);
 console.log("nome (string): nome do departamento.".cyan);
-console.log("funcionarios (array): array de objetos representando funcionários do departamento.".cyan);
+console.log("funcionarios (array): array de objetos representando funcionários do departamento.\n".cyan);
 const departamentos = [
   {
       id: 1,
@@ -151,19 +137,23 @@ const departamentos = [
       ]
   }
 ]
-ok();
+console.log(departamentos[0]);
+console.log(departamentos[1]);
+pula();
 console.log("  a) Crie uma função chamada encontrarFuncionarioPorId que recebe o id de um funcionário e retorna o objeto do funcionário correspondente em qualquer departamento.".cyan);
 function encontrarFuncionarioPorId(id) {
   for (const departamento of departamentos) {
-      const funcionarioEncontrado = departamento.funcionarios.find(funcionario => funcionario.id === id);
+      const funcionarioEncontrado = departamento.funcionarios.find(funcionario => funcionario.id == id);
       if (funcionarioEncontrado) {
           return funcionarioEncontrado;
       }
   }
   return null;
 }
+ok();
 console.log("  b) Utilize a função para encontrar um funcionário com um id existente e imprima no console as informações do funcionário encontrado. Em seguida, utilize a função para encontrar um funcionário com um id inexistente e imprima no console uma mensagem indicando que o funcionário não foi encontrado.\n".cyan);
 const idFuncionario = Number(read.question("Informe o id do Funcionario: ")).toFixed(0);
 console.log(encontrarFuncionarioPorId(idFuncionario));
+
 console.log('End-of-Job'.green);
 
